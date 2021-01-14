@@ -40,11 +40,11 @@ for ($a = 0; $a < count($encoded); $a++) {
     echo '&nbsp;============<br>';
 
     foreach ($encoded[$a] as $key => $value) {
-      echo "&nbsp;&nbsp;&nbsp;&nbsp;$key :<br>";
+      echo "&nbsp;&nbsp;&nbsp;&nbsp;$key : $value <br>";
 
       if (is_array($value) or is_object($value)) {
         foreach ($value as $data => $valuedata) {
-          echo "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $data . " : ";
+          echo "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . $data . " : $valuedata";
 
           if (is_array($valuedata) or is_object($valuedata)) {
             foreach ($valuedata as $dataSub => $valuedataSub) {

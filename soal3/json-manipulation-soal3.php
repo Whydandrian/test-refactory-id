@@ -48,32 +48,29 @@ for ($a = 0; $a < count($encoded); $a++) {
 }
 echo "================================= <br>";
 echo "4. Find all items was purchased at 16 Januari 2020<br><br>";
+
+echo "Barang yang di beli tanggal 16 Januari yaitu : <br><br>";
+
 for ($a = 0; $a < count($encoded); $a++) {
 
-    echo $encoded[$a]['purchased_at'] . "<br>";
-    // if ($encoded[$a]['purchased_at'] == "furniture") {
-
-    //     foreach ($encoded[$a]['tags'] as $keyTags => $valueTags) {
-    //         if ($keyTags == 0) {
-    //             echo "&nbsp;&nbsp;Tipe barang : " . $encoded[$a]['type'] . " -> $valueTags<br><br>";
-    //         } else {
-    //             continue;
-    //         }
-    //     }
-    // }
+    $tgl = date("d", $encoded[$a]['purchased_at']);
+    $tglbeli = date("d M Y", $encoded[$a]['purchased_at']);
+    if ($tgl == "16") {
+        echo $encoded[$a]['name'] . " : dibeli tanggal $tglbeli<br>";
+    } else {
+        continue;
+    }
 }
 echo "================================= <br>";
 echo "5. Find all items with brown color<br><br>";
-for ($a = 0; $a < count($encoded); $a++) {
-    if ($encoded[$a]['type'] == "furniture") {
 
-        echo $encoded[$a]['name'] . "<br>";
-        foreach ($encoded[$a]['tags'] as $keyTags => $valueTags) {
-            if ($keyTags == 0) {
-                echo "&nbsp;&nbsp;Tipe barang : " . $encoded[$a]['type'] . " -> $valueTags<br><br>";
-            } else {
-                continue;
-            }
+echo "Barang dengan warna coklat yaitu : <br><br>";
+
+for ($a = 0; $a < count($encoded); $a++) {
+    // echo $encoded[$a]['tags'];
+    foreach ($encoded[$a]['tags'] as $key => $value) {
+        if ($value == "brown") {
+            echo $encoded[$a]['name'] . "<br>";
         }
     }
 }
